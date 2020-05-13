@@ -1,0 +1,45 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  {% feed_meta %}
+  {% seo %}
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<html class="bg-white antialiased">
+  <body class="font-sans text-base text-gray-900 leading-relaxed">
+
+    <div class="flex flex-col lg:flex-row lg:justify-center">
+
+      <nav class="lg:mt-10 w-64 p-6">
+        <div class="lg:mb-2">
+          <h1 class="font-bold">{{ site.nav.title }}</h1>
+        </div>
+
+        <div>
+          <ul>
+            <li>
+              <a href="/posts">Posts</a>
+            </li>
+
+            <li>
+              <a href="/posts">Photos</a>
+            </li>
+
+            <li>
+              <a href="/posts">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section class="lg:mt-10 w-full max-w-xl px-6 py-6 lg:px-0">
+        {{ content }}
+      </section>
+
+      <aside class="w-64">
+      </aside>
+
+    </div>
+
+  </body>
+</html>
