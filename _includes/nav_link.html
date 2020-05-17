@@ -1,0 +1,12 @@
+<li>
+  {% if page.active == include.title %}
+  <a class="transform inline-block duration-200 hover:translate-x-px text-gray-900 font-medium" href="{{ include.url }}">
+    {{ include.title | capitalize }}
+    <span>◆</span>
+  </a
+  {% else %}
+  <a class="transform inline-block duration-200 hover:translate-x-2px hover:text-gray-900 text-gray-600 font-medium" href="{{ include.url }}">
+    {{ include.title | capitalize }}
+  </a>
+  {% endif %}
+</li>

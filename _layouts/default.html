@@ -12,22 +12,14 @@
 
       <nav class="lg:mt-10 w-64 p-6">
         <div class="lg:mb-2">
-          <h1 class="font-bold">{{ site.nav.title }}</h1>
+          <h1 class="font-bold">{{ site.title }}</h1>
         </div>
 
-        <div>
-          <ul>
-            <li>
-              <a href="/posts">Posts</a>
-            </li>
-
-            <li>
-              <a href="/posts">Photos</a>
-            </li>
-
-            <li>
-              <a href="/posts">About</a>
-            </li>
+        <div class="nav">
+          <ul class="font-medium text-gray-700">
+            {% include nav_link.html title="posts" url="/" %}
+            {% include nav_link.html title="photos" url="/photos" %}
+            {% include nav_link.html title="about" url="/about" %}
           </ul>
         </div>
       </nav>
