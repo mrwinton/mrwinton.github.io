@@ -6,11 +6,6 @@
 @import "tailwindcss/components";
 
 /* Write your styles below this line. */
-
-/* Write your styles above this line. */
-
-@tailwind utilities;
-
 .content a,
 .markdown a {
   @apply text-indigo-600 underline;
@@ -112,3 +107,6 @@
 .markdown td {
   @apply border py-1 px-3;
 }
+/* Write your styles above this line. */
+
+@tailwind utilities;
