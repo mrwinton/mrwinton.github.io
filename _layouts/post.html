@@ -6,10 +6,14 @@ layout: default
   {{ page.title }}
 </h2>
 
+<p class="font-medium text-gray-600 pb-6">
+  {{ page.date | date: '%B %d, %Y' }}
+</p>
+
 {% if page.update_text %}
 <div class="bg-indigo-100 rounded text-indigo-900 px-4 py-3 my-3 shadow" role="alert">
   <div>
-    <p class="font-bold pb-1">Update - {{ page.update_date | date: '%B %d, %Y' }}</p>
+    <p class="font-bold pb-1">{{ page.update_date | date: '%B %d, %Y' }} Update</p>
     <p>{{page.update_text}}</p>
   </div>
 </div>
@@ -18,7 +22,3 @@ layout: default
 <div class="markdown">
   {{ content }}
 </div>
-
-<p class="font-medium text-gray-600 py-6">
-  {{ page.date | date: '%B %d, %Y' }}
-</p>

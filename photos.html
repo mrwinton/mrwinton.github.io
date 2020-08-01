@@ -3,4 +3,11 @@ layout: default
 active: photos
 ---
 
-<h1 class="text-red-500">Photos</h1>
+{% for image in site.static_files reversed %}
+{% if image.path contains 'images/photos' %}
+<div class="block">
+  <img src="{{ site.baseurl }}{{ image.path }}" loading="lazy"/>
+  <span class="float-right mb-4 text-gray-600 text-sm">{{ image.path | split: "/" | last | downcase }}</span>
+</div>
+{% endif %}
+{% endfor %}

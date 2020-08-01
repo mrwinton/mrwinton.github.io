@@ -4,7 +4,7 @@ title:  Scaling Agile at Flux
 date:   2018-01-25 14:57:37 +0200
 active: posts
 update_date: 2018-08-01 14:57:37 +0200
-update_text: Scaling at Flux continues! However, now without me as I move to Sweden - I wish all the best for team at Flux and continued success!
+update_text: Scaling at Flux continues without me as I move to new challenges in Sweden.
 ---
 
 I work at [Flux](http://fluxfederation.com/), a software company that builds energy retail platforms. On any given day you may find us transforming how consumers buy power, expanding into new markets or enjoying some of Wellington's finest coffee.
