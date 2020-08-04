@@ -1,22 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icons/favicon-16x16.png' | relative_url }}">
+    <link rel="mask-icon" href="{{ '/assets/icons/safari-pinned-tab.svg' | relative_url }}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
     {% feed_meta %}
     {% seo %}
+
     <link rel="stylesheet" href="/css/site.css">
   </head>
   <body class="bg-white antialiased font-sans text-base text-gray-900 leading-relaxed">
 
-    <div class="flex flex-col lg:flex-row lg:justify-center">
+    <div class="flex flex-col">
 
-      <nav class="lg:mt-10 w-64 p-6">
+      <nav class="flex flex-col max-w-xl w-full px-6 py-6 sm:px-0 mx-auto">
         <div class="lg:mb-2">
           <h1 class="font-bold">{{ site.title }}</h1>
         </div>
 
         <div class="nav">
-          <ul class="font-medium text-gray-700">
+          <ul class="flex flex-row space-x-2 font-medium text-gray-700">
             {% include nav_link.html title="posts" url="/" %}
             {% include nav_link.html title="photos" url="/photos" %}
             {% include nav_link.html title="about" url="/about" %}
@@ -24,12 +33,9 @@
         </div>
       </nav>
 
-      <section class="lg:mt-10 w-full max-w-xl px-6 py-6 lg:px-0">
+      <section>
         {{ content }}
       </section>
-
-      <aside class="w-64">
-      </aside>
 
     </div>
 

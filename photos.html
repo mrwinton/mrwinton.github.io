@@ -3,11 +3,14 @@ layout: default
 active: photos
 ---
 
-{% for image in site.static_files reversed %}
-{% if image.path contains 'images/photos' %}
-<div class="block">
-  <img src="{{ site.baseurl }}{{ image.path }}" loading="lazy"/>
-  <span class="float-right mb-4 text-gray-600 text-sm">{{ image.path | split: "/" | last | downcase }}</span>
+<div class="flex flex-col -mt-10 sm:-mt-6 px-6">
+  {% for image in site.static_files reversed %}
+  {% if image.path contains 'images/photos' %}
+  <section class="flex flex-col justify-center min-w-full min-h-screen">
+    <span>
+      <img class="mx-auto" src="{{ site.baseurl }}{{ image.path }}" loading="lazy"/>
+    </span>
+  </section>
+  {% endif %}
+  {% endfor %}
 </div>
-{% endif %}
-{% endfor %}

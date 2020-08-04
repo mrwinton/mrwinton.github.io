@@ -107,6 +107,36 @@
 .markdown td {
   @apply border py-1 px-3;
 }
+
+/* desktop */
+@media (min-aspect-ratio: 4/3) {
+  section img, section video {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* desktop */
+@media (min-aspect-ratio: 4/3) and (min-width: 480px) {
+  section img, section video {
+    max-height: calc(100vh - 100px);
+  }
+}
+
+/* mobile */
+@media (max-aspect-ratio: 4/3){
+  section img, section video {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* mobile */
+@media (max-aspect-ratio: 4/3) and (min-width: 480px) {
+  section img, section video {
+    max-height: calc(100vh - 100px);
+  }
+}
 /* Write your styles above this line. */
 
 @tailwind utilities;
