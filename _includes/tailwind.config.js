@@ -6,6 +6,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    rotate: ['responsive', 'hover', 'focus', 'group-hover'],
+  },
   plugins: [],
 };
