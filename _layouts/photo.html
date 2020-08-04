@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="max-w-xl w-full mx-auto">
+  <h2 class="font-bold">
+    {{ page.title }}
+  </h2>
+
+  <p class="font-medium text-gray-600 pb-6">
+    {{ page.date | date: '%B %d, %Y' }}
+  </p>
+</div>
+
+<div class="flex flex-col -mt-10 sm:-mt-6 px-6">
+  <section class="flex flex-col justify-center min-w-full min-h-screen">
+    <span>
+      <img class="mx-auto" src="{{ site.baseurl }}{{ page.photo }}" alt="{{post.title}}" loading="lazy"/>
+    </span>
+  </section>
+</div>
+
+<div class="max-w-xl w-full pb-6 mx-auto">
+  <div class="markdown mb-6">
+    {{ content }}
+  </div>
+
+  <span class="text-sm text-gray-600">
+    Ⓒ Michael Winton - All Rights Reserved.
+  </span>
+</div>
