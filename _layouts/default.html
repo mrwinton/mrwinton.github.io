@@ -13,7 +13,11 @@
     {% feed_meta %}
     {% seo %}
 
+    {% if jekyll.environment == "production" %}
+    <link rel="stylesheet" href="{{ 'assets/production.css' | relative_url }}">
+    {% else %}
     <link rel="stylesheet" href="{{ 'css/site.css' | relative_url }}">
+    {% endif %}
   </head>
   <body class="bg-white antialiased font-sans text-base text-gray-900 leading-relaxed">
 

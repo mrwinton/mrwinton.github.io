@@ -17,7 +17,6 @@ gem "mdl"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-postcss"
-  gem "jekyll-purgecss"
   gem "jekyll-seo-tag"
 end
 
