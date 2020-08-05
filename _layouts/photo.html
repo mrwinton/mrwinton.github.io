@@ -15,7 +15,11 @@ layout: default
 <div class="flex flex-col pt-2 pb-8 px-6">
   <section class="flex flex-col justify-center min-w-full">
     <span>
-      <img class="mx-auto" src="{{ site.baseurl }}{{ page.photo }}" alt="{{post.title}}" loading="lazy"/>
+      {% responsive_image_block %}
+      path: {{ page.photo }}
+      alt: {{ page.title }}
+      class: "mx-auto"
+      {% endresponsive_image_block %}
     </span>
   </section>
 </div>

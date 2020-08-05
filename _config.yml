@@ -25,6 +25,15 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-postcss
+  - jekyll-responsive-image
+
+responsive_image:
+  template: _includes/responsive-image.html
+  strip: true
+  sizes:
+    - width: 320
+    - width: 740
+    - width: 1480
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
