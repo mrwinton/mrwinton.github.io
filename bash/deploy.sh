@@ -18,6 +18,7 @@ COPY=${TEMP}/copy
 echo -e "Cloning Github repository:"
 git clone -b "${BRANCH_FROM}" "${URL}" "${CLONE}"
 cp -R ${CLONE} ${COPY}
+cp ${CLONE}/_site/css/site.css ${TEMP}/site.css
 
 cd "${CLONE}"
 
@@ -46,6 +47,9 @@ cp -R _site ${TEMP}
 cd ${TEMP}
 rm -rf ${CLONE}
 mv ${COPY} ${CLONE}
+
+cp ${TEMP}/site.css ${CLONE}/_site/css/site.css
+
 cd ${CLONE}
 
 echo -e "\nPreparing ${BRANCH} branch:"
