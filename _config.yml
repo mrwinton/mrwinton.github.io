@@ -30,10 +30,15 @@ plugins:
 responsive_image:
   template: _includes/responsive-image.html
   strip: true
+  auto_rotate: true
   sizes:
     - width: 320
     - width: 740
-    - width: 1480
+      quality: 80
+    - width: 1280
+      quality: 80
+    - width: 2280
+      quality: 80
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
