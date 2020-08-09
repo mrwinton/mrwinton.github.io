@@ -108,6 +108,17 @@
   @apply border py-1 px-3;
 }
 
+img:not([src]) {
+  visibility: hidden;
+}
+
+/* Fixes Firefox anomaly during image load */
+@-moz-document url-prefix() {
+  img:-moz-loading {
+    visibility: hidden;
+  }
+}
+
 /* desktop */
 @media (min-aspect-ratio: 4/3) {
   section img, section video {
