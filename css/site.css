@@ -149,12 +149,20 @@ img:not([src]) {
   }
 }
 
-.tag-photo {
-  @apply text-indigo-300;
+.tag-photo .primary {
+  fill: #BEE3F8; /* blue-200 */
 }
 
-.tag-work {
-  @apply text-green-300;
+.tag-photo .secondary {
+  fill: #4299E1; /* blue-500 */
+}
+
+.tag-work .primary {
+  fill: #FED7E2; /* pink-200 */
+}
+
+.tag-work .secondary {
+  fill: #ED64A6; /* pink-500 */
 }
 /* Write your styles above this line. */
 

@@ -15,14 +15,20 @@ active: posts
   <ul class="mb-6">
     {% assign date = currentdate %}
     {% endif %}
-    <li class="mb-1 sm:mb-0 flex flex-row justify-between">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-
-      <div>
+    <li class="mb-1 sm:mb-0 flex flex-row">
+      <div class="flex flex-row items-center align-center mr-2">
         {% for tag in post.tags %}
-        <span class="text-xs tracking-wider font-black uppercase p-1 rounded tag-{{tag}}">{{ tag }}</span>
+        <div class="h-6 w-6 tag-{{tag}}">
+          {% if tag == "photo" %}
+          {% include icon_photo.html %}
+          {% else %}
+          {% include icon_news.html %}
+          {% endif %}
+        </div>
         {% endfor %}
       </div>
+
+      <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
     {% if forloop.last %}</ul>{% endif %}
   {% endfor %}
