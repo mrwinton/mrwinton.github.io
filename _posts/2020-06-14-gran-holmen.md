@@ -7,6 +7,6 @@ tags:   photo
 photo:  assets/images/posts/photos/2020-06-14-gran-holmen.jpg
 ---
 
-To be badkruka or not to be badkruka.
+To badkruka or not to badkruka.
 
 The first dip of summer is the sorting hat.

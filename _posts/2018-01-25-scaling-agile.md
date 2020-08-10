@@ -3,6 +3,7 @@ layout: post
 title:  Scaling Agile at Flux
 date:   2018-01-25 14:57:37 +0200
 active: posts
+tags:   work
 update_date: 2018-08-01 14:57:37 +0200
 update_text: Scaling at Flux continues without me as I move to new challenges in Sweden.
 ---
