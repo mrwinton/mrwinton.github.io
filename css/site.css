@@ -148,6 +148,14 @@ img:not([src]) {
     max-height: calc(100vh - 100px);
   }
 }
+
+.tag-photo {
+  @apply text-indigo-300;
+}
+
+.tag-work {
+  @apply text-green-300;
+}
 /* Write your styles above this line. */
 
 @tailwind utilities;
