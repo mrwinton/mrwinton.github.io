@@ -16,7 +16,7 @@ There has been a lot of time and effort put into answering this question. Spotif
 
 The principles being tested:
 
-#### 1. You build it, you own it, you run it
+# 1. You build it, you own it, you run it
 
 Focusing teams around functional areas rather than projects is the boldest change we’re trying out. Traditionally at Flux we’ve signed up a new market and then established a contract for delivering X features by Y deadline. This has worked well but is limiting in that we are only thinking as far as the deadline allows.
 
@@ -30,7 +30,7 @@ We hypothesise that creating teams around functional areas will relieve and perh
 
 ![functional teams over project teams]({{ site.url }}/assets/images/posts/scaling_agile/scaling_agile_functional.jpg)
 
-#### 2. Nothing beats an Agile team
+# 2. Nothing beats an Agile team
 
 If an Agile team is the _best thing_™, why change it? The SAFe framework heavily leverages the cross-functional, self-organising Agile team idea. It essentially proposes that at each level you form an Agile team of Agile teams.
 
@@ -38,7 +38,7 @@ We hypothesise that by coordinating the functional area teams as Agile teams the
 
 ![agile team of teams]({{ site.url }}/assets/images/posts/scaling_agile/scaling_agile_teams.jpg)
 
-#### 3. The team is global
+# 3. The team is global
 
 Opening a new Melbourne office is a major milestone for Flux. The virtual water cooler and it's collaborating challenges is something entirely new for Flux to tackle and presents an opportunity for laying a solid foundation for future offices and perhaps remote work.
 
