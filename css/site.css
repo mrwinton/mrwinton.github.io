@@ -96,6 +96,10 @@
   @apply border py-1 px-3;
 }
 
+.markdown hr {
+  @apply mt-5;
+}
+
 img:not([src]) {
   visibility: hidden;
 }
