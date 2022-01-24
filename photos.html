@@ -9,11 +9,7 @@ active: photos
   {% for post in photo_posts %}
   <section class="flex flex-col justify-center min-w-full min-h-screen">
     <a href="{{ post.url }}">
-      {% responsive_image_block %}
-      path: {{ post.photo }}
-      alt: {{ post.title }}
-      class: "mx-auto"
-      {% endresponsive_image_block %}
+      {% picture lazy {{ post.photo }} --alt {{ post.title }} %}
     </a>
   </section>
   {% endfor %}

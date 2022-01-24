@@ -25,20 +25,23 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-postcss
-  - jekyll-responsive-image
 
-responsive_image:
-  template: _includes/responsive-image.html
-  strip: true
-  auto_rotate: true
-  sizes:
-    - width: 320
-    - width: 740
-      quality: 80
-    - width: 1280
-      quality: 80
-    - width: 2280
-      quality: 80
+# responsive_image:
+#   template: _includes/responsive-image.html
+#   strip: true
+#   auto_rotate: true
+#   sizes:
+#     - width: 320
+#     - width: 740
+#       quality: 80
+#     - width: 1280
+#       quality: 80
+#     - width: 2280
+#       quality: 80
+
+picture:
+  source: "assets/images"
+  output: "assets/generated"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
