@@ -39,6 +39,9 @@ plugins:
 #     - width: 2280
 #       quality: 80
 
+postcss:
+  cache: false
+
 picture:
   source: "assets/images"
   output: "assets/generated"

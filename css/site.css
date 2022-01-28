@@ -2,10 +2,10 @@
 ---
 /* Front matter is necessary for Jekyll */
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Write your styles below this line. */
 .content a,
 .markdown a {
   @apply text-indigo-600 underline;
@@ -140,6 +140,3 @@ img:not([src]) {
     max-height: calc(100vh - 100px);
   }
 }
-/* Write your styles above this line. */
-
-@tailwind utilities;

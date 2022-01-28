@@ -1,10 +1,7 @@
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [
-      './**/*.html'
-    ]
-  },
+  content: [
+    './**/*.html'
+  ],
   theme: {
     extend: {
       spacing: {
@@ -12,8 +9,7 @@ module.exports = {
       },
     },
   },
-  variants: {
-    rotate: ['responsive', 'hover', 'focus', 'group-hover'],
-  },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 };
