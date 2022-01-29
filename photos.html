@@ -7,10 +7,12 @@ active: photos
 
 <div class="flex flex-col -mt-10 sm:-mt-6 px-6">
   {% for post in photo_posts %}
-  <section class="flex flex-col justify-center min-w-full min-h-screen">
+  <figure class="flex flex-col justify-center min-w-full min-h-screen">
     <a href="{{ post.url }}">
       {% picture lazy {{ post.photo }} --alt {{ post.title }} %}
     </a>
-  </section>
+
+    <figcaption class="mx-auto mt-2 text-gray-400">{{ post.title }}</figcaption>
+  </figure>
   {% endfor %}
 </div>
