@@ -26,19 +26,6 @@ plugins:
   - jekyll-feed
   - jekyll-postcss
 
-# responsive_image:
-#   template: _includes/responsive-image.html
-#   strip: true
-#   auto_rotate: true
-#   sizes:
-#     - width: 320
-#     - width: 740
-#       quality: 80
-#     - width: 1280
-#       quality: 80
-#     - width: 2280
-#       quality: 80
-
 postcss:
   cache: false
 
@@ -46,17 +33,19 @@ picture:
   source: "assets/images"
   output: "assets/generated"
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+# Exclude from processing to `_site`
 exclude:
+  - .gitignore
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - yarn.lock
-  - package-lock.json
   - README.md
+  - bash
+  - bin
+  - gemset.nix
+  - node_modules
+  - package-lock.json
+  - package.json
   - postcss.config.js
   - purgecss.config.js
-  - bin
-  - .gitignore
+  - shell.nix
+  - yarn.lock
