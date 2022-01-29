@@ -11,22 +11,9 @@ layout: default
     <p class="font-medium text-gray-600 ">
       {{ page.date | date: '%B %d, %Y' }}
     </p>
-
-    {% if page.update_text %}
-    <div class="bg-indigo-100 rounded text-indigo-900 px-4 py-3 my-2 shadow" role="alert">
-      <div>
-        <p class="font-bold pb-1">{{ page.update_date | date: '%B %d, %Y' }} Update</p>
-        <p>{{page.update_text}}</p>
-      </div>
-    </div>
-    {% endif %}
   </div>
 
-  <div class="prose prose-lg mb-6">
+  <div class="prose mb-6">
     {{ content }}
   </div>
-
-  <span class="text-sm text-gray-600">
-    Michael Winton
-  </span>
 </div>
