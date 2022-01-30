@@ -18,10 +18,16 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
+    - uses: actions/setup-node@v2
+      with:
+        node-version: "16"
+        cache: 'npm'
+
+    - run: npm install
+
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
         pre_build_commands: |
-          apk --update add vips vips-tools nodejs npm
-          npm install --cache=/github/home/.npm-test
+          apk --update add vips vips-tools
