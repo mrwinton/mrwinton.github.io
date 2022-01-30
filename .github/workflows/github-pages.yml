@@ -24,7 +24,5 @@ jobs:
         target_branch: 'gh-pages'
         pre_build_commands: |
           apk --update add vips vips-tools nodejs npm
-          mkdir ~/.npm-global
-          npm config set prefix '~/.npm-global'
-          export PATH=~/.npm-global/bin:$PATH
+          sudo chown -R 1001:121 "/github/home/.npm"
           npm install
