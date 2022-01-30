@@ -12,7 +12,7 @@ active: photos
       {% picture lazy {{ post.photo }} --alt {{ post.title }} %}
     </a>
 
-    <figcaption class="mx-auto mt-2 text-gray-400">{{ post.title }}</figcaption>
+    <figcaption class="mx-auto mt-2 text-xs font-bold uppercase text-gray-400 tracking-wide">{{ post.title }}</figcaption>
   </figure>
   {% endfor %}
 </div>
