@@ -18,15 +18,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    - uses: actions/setup-node@v2
-      with:
-        node-version: "14"
-
-    - run: yarn install
-
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages-test'
         pre_build_commands: |
-          apk --update add vips vips-tools
+          apk --update add vips vips-tools nodejs
