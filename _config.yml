@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Michael Winton
+url: https://winton.co
 
 # Build settings
 markdown: kramdown
