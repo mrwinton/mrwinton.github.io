@@ -1,4 +1,3 @@
-2021-12-30-nordingra.jpeg
 ---
 layout: photo
 title:  Nordingrå
