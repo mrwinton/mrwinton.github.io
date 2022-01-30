@@ -1,7 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "@tailwindcss/typography": "tailwindcss/typography",
+    "@tailwindcss/typography": "github:tailwindcss/typography",
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.16",
     "postcss": "^8.4.5",
