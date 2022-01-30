@@ -1,6 +1,6 @@
 ---
 layout: photo
-title:  Wellington II
+title:  Wellington
 date:   2017-11-25-wellington 12:00:00 +0200
 active: posts
 tags:   photo
