@@ -23,5 +23,5 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages-test'
         pre_build_commands: |
-          apk --update add vips vips-tools nodejs
+          apk --update add vips vips-tools nodejs npm
           npm install
