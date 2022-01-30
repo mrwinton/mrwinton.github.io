@@ -30,5 +30,5 @@ let
   };
 in
 pkgs.mkShell {
-  buildInputs = [ pkg-config zlib libiconv gems (lowPrio gems.wrappedRuby) bundix nodejs-14_x nodePackages.typescript nodePackages.typescript-language-server yarn vips ];
+  buildInputs = [ pkg-config zlib libiconv gems (lowPrio gems.wrappedRuby) bundix nodejs nodePackages.typescript nodePackages.typescript-language-server vips ];
 }
