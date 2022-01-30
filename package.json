@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "postcss": "postcss css/site.css -o _site/css/site.css"
+    "dev": "TAILWIND_MODE=watch NODE_ENV=development postcss css/site.css -o css/dist.css -w",
+    "postcss": "postcss css/site.css -o css/dist.css"
   },
   "devDependencies": {
     "@tailwindcss/typography": "github:tailwindcss/typography",
