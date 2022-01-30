@@ -18,7 +18,20 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
+    - name: Update apt
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run:
+        sudo apt-get update -qq -o Acquire::Retries=3
+
+    - name: Install libvips
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run:
+        sudo apt-get install --fix-missing -qq -o Acquire::Retries=3
+          libvips
+
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: 'gh-pages'
+        target_branch: 'gh-pages-test'
