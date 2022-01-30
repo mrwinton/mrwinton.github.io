@@ -18,19 +18,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    - name: Update apt
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run:
-        sudo apt-get update -qq -o Acquire::Retries=3
+    - uses: actions/setup-node@v2
+      with:
+        node-version: "14"
 
-    - name: Install ruby-vips
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run:
-        sudo apt-get install ruby-vips
+    - run: yarn install
 
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages-test'
+        pre_build_commands: |
+          apk --update add vips vips-tools
