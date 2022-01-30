@@ -526,16 +526,6 @@
     };
     version = "2.0.1";
   };
-  trollop = {
-    groups = ["default"];
-    platforms = [];
-    source = {
-      remotes = ["https://rubygems.org"];
-      sha256 = "1xvvc01invcmqpfcc6m3dlp4gmyysibd74p7wdp3s5j9yf8jvjnf";
-      type = "gem";
-    };
-    version = "2.9.10";
-  };
   unicode-display_width = {
     groups = ["default" "development" "jekyll_plugins"];
     platforms = [];

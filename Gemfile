@@ -9,7 +9,6 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll"
 gem "mdl"
-gem "trollop"
 gem "standard"
 gem "ruby-vips"
 gem "webrick"
