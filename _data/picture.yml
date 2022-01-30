@@ -7,7 +7,7 @@ media_queries:
 
 presets:
   default:
-    formats: [avif, webp, original] # Order matters!
+    formats: [webp, original] # Order matters!
     widths: [200, 400, 800, 1200, 1600] # Image widths, in pixels.
 
     # The sizes attribute is both important, and impossible to offer good defaults for. You need to
