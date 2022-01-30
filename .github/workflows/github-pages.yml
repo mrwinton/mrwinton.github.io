@@ -24,12 +24,11 @@ jobs:
       run:
         sudo apt-get update -qq -o Acquire::Retries=3
 
-    - name: Install libvips
+    - name: Install ruby-vips
       env:
         DEBIAN_FRONTEND: noninteractive
       run:
-        sudo apt-get install --fix-missing -qq -o Acquire::Retries=3
-          ruby-vips libffi glib
+        sudo apt-get install ruby-vips
 
     - uses: helaili/jekyll-action@v2
       with:
