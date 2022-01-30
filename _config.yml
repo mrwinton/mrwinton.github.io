@@ -24,10 +24,6 @@ title: Michael Winton
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-postcss
-
-postcss:
-  cache: false
 
 picture:
   source: "assets/images"

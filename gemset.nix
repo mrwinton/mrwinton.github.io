@@ -135,16 +135,6 @@
     };
     version = "0.16.0";
   };
-  jekyll-postcss = {
-    groups = ["jekyll_plugins"];
-    platforms = [];
-    source = {
-      remotes = ["https://rubygems.org"];
-      sha256 = "06b28mcbibhg2jb1x0fk9hrqcwz5nk1v7vbhqw5fwddwhs2bj77l";
-      type = "gem";
-    };
-    version = "0.5.0";
-  };
   jekyll-sass-converter = {
     dependencies = ["sassc"];
     groups = ["default" "jekyll_plugins"];

@@ -1,5 +1,8 @@
 {
   "private": true,
+  "scripts": {
+    "postcss": "postcss css/site.css -o _site/css/site.css"
+  },
   "devDependencies": {
     "@tailwindcss/typography": "github:tailwindcss/typography",
     "autoprefixer": "^10.4.2",

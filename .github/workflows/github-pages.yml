@@ -25,6 +25,8 @@ jobs:
 
     - run: npm install
 
+    - run: npm run postcss
+
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
