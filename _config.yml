@@ -42,6 +42,6 @@ exclude:
   - package-lock.json
   - package.json
   - postcss.config.js
-  - purgecss.config.js
   - shell.nix
+  - tailwind.config.js
   - yarn.lock
