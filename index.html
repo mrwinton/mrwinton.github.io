@@ -3,12 +3,12 @@ layout: default
 active: posts
 ---
 
-<div class="flex flex-col max-w-xl w-full px-6 py-4 sm:px-0 mx-auto prose">
+<div class="flex flex-col max-w-xl w-full px-6 py-4 sm:px-0 mx-auto prose dark:prose-invert">
   {% for post in site.posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
   {% unless forloop.first %}</ul>{% endunless %}
-  <span class="text-sm font-bold uppercase text-gray-400 tracking-wide">
+  <span class="text-sm mw-text-subheading">
     {{ currentdate }}
   </span>
 
@@ -20,7 +20,7 @@ active: posts
 
       <div class="hidden sm:block">
         {% for tag in post.tags %}
-        <span class="text-xs font-bold uppercase text-gray-400 tracking-wide">
+        <span class="text-xs mw-text-subheading">
           {{ tag }}
         </span>
         {% endfor %}

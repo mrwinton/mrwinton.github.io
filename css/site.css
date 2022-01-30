@@ -1,6 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
+
+.mw-theme {
+  @apply bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100;
+}
+
+.mw-text-nav {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.mw-text-label {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.mw-text-subheading {
+  @apply font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wide;
+}
+
+.mw-prose {
+  @apply prose;
+}
 
 img:not([src]) {
   visibility: hidden;
