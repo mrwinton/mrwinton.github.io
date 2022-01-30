@@ -24,3 +24,4 @@ jobs:
         target_branch: 'gh-pages-test'
         pre_build_commands: |
           apk --update add vips vips-tools nodejs
+          npm install
