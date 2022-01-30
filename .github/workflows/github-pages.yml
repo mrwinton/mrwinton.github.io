@@ -21,7 +21,7 @@ jobs:
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: 'gh-pages-test'
+        target_branch: 'gh-pages'
         pre_build_commands: |
           apk --update add vips vips-tools nodejs npm
           npm install
