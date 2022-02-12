@@ -7,5 +7,4 @@ tags:   photo
 photo:  posts/photos/2017-11-25-wellington01.jpg
 ---
 
-While wandering through Zelandia, we heard the Tui before we saw
-it. Thanks to Live Photos we managed this still.
+While wandering through Zelandia.

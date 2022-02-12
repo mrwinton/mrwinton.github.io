@@ -7,5 +7,4 @@ tags:   photo
 photo:  posts/photos/2020-07-11-skulesokgen.jpg
 ---
 
-We FOMO'd hard as we passed this lake on the way up north. The same mistake
-was not made on the way back down.
+Camping/swimming at Omnebadet.
