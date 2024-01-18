@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="Michael Winton's weblog">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/assets/images/mw-doodle.svg">
+    <link rel="apple-touch-icon" href="/assets/images/mw-doodle180.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <link type="application/atom+xml" rel="alternate" href="https://winton.co/feed.xml" title="Michael Winton" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Better best practices | Michael Winton</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Better best practices" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Have you ever received a code review that went something along the lines of:" />
+<meta property="og:description" content="Have you ever received a code review that went something along the lines of:" />
+<link rel="canonical" href="https://winton.co/2022/01/20/better-best-practices.html" />
+<meta property="og:url" content="https://winton.co/2022/01/20/better-best-practices.html" />
+<meta property="og:site_name" content="Michael Winton" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-20T11:42:37+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Better best practices" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-01-20T11:42:37+00:00","datePublished":"2022-01-20T11:42:37+00:00","description":"Have you ever received a code review that went something along the lines of:","headline":"Better best practices","mainEntityOfPage":{"@type":"WebPage","@id":"https://winton.co/2022/01/20/better-best-practices.html"},"url":"https://winton.co/2022/01/20/better-best-practices.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="/css/dist.css">
+  </head>
+  <body class="mw-theme antialiased font-sans text-base leading-relaxed">
+
+    <div class="flex flex-col">
+
+      <nav class="flex flex-col max-w-xl w-full px-6 py-6 sm:px-0 mx-auto">
+        <div class="mb-2">
+          <h1 class="font-bold">
+            <a href="/">
+              Michael Winton
+            </a>
+          </h1>
+        </div>
+
+        <div class="nav">
+          <ul class="flex flex-row space-x-4 font-medium mw-text-nav">
+            <li>
+  
+  <a class="inline-block" href="/">
+    <h2 class="font-semibold underline">
+      Posts
+    </h2>
+  </a>
+  
+</li>
+
+            <li>
+  
+  <a class="inline-block" href="/photos">
+    <h2 class="font-semibold">
+      Photos
+    </h2>
+  </a>
+  
+</li>
+
+            <li>
+  
+  <a class="inline-block" href="/about">
+    <h2 class="font-semibold">
+      About
+    </h2>
+  </a>
+  
+</li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <section>
+        <div class="max-w-xl w-full py-6 mx-auto px-6 sm:px-0">
+  <div class="pb-6">
+    <h2 class="font-bold">
+      Better best practices
+    </h2>
+
+    <p class="font-medium mw-text-label">
+      January 20, 2022
+    </p>
+  </div>
+
+  <div class="prose dark:prose-invert mb-6">
+    <p>Have you ever received a code review that went something along the lines of:</p>
+
+<blockquote>
+  <p>There are a few places that I’ve commented which don’t follow the best
+practices documented <a href="https://example.com/">here</a>, let’s fix up before
+proceeding!</p>
+</blockquote>
+
+<p>Engineering teams commonly align on practices that we believe encourage good
+outcomes in a <code class="language-plaintext highlighter-rouge">best-practices.md</code> document or similar. These documents are the
+melting pot in which company history, community standards, new initiatives and
+hard-earned bug fix lessons meet. So it is only natural for reviews like the one
+above to occur for changes to be consistent with the <code class="language-plaintext highlighter-rouge">best-practices.md</code>.</p>
+
+<p>All good, right? Yes, but no.</p>
+
+<p>I believe there are a couple of points of friction with this process.</p>
+
+<p>First, the process inherently relies on the team’s ability to recall and
+evaluate every practice, in every change, in every code review, in the earnest
+hope that bad practices don’t slip through.</p>
+
+<p>Second, the process can dilute the signal to noise ratio of the code review,
+wherein the worst-case scenario, reviewers and reviewees miss opportunities for
+discussion on nuances of the change itself.</p>
+
+<p>So at Velory, we wondered how we could improve this process. Making it easier to
+apply our best practices while tightening the feedback loop so that issues are
+caught long before code review.</p>
+
+<p>Imagine the nirvana when you are writing code that would introduce a bad
+practice and your editor gave the instant feedback, “Hi, avoid Foo. Use Bar
+instead”, that would be delightful. That’s what we’re after.</p>
+
+<h2 id="towards-nirvana">Towards nirvana</h2>
+
+<p>We use Rails to develop our applications and <a href="https://rubocop.org/">RuboCop</a> to
+lint our Ruby code. RuboCop does a marvellous job of checking and maintaining
+code style through <em>Cops</em> — rules that identify issues, and optionally
+automatically fix them too.</p>
+
+<p>At Velory, our first step on this journey has been through leveraging RuboCop.
+By synthesising our best practices into Cops we are essentially able to lint our
+best practices — consistently✅ and with a short feedback loop✅!</p>
+
+<p>A reasonable workflow for turning a practice into a Cop has been to:</p>
+
+<ol>
+  <li>
+    <p>Choose a best practice</p>
+
+    <p>Not all best practices are equal, but a good place to start are best
+practices that are <code class="language-plaintext highlighter-rouge">grep(1)</code>-able. In this example, we can use:</p>
+
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> Avoid <span class="sb">`let`</span> and <span class="sb">`let!`</span> in specs, prefer four-phase test style
+</code></pre></div>    </div>
+
+    <p>Which is <code class="language-plaintext highlighter-rouge">grep(1)</code>-able with:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s1">'let(.*)'</span> <span class="nt">-r</span> spec/<span class="k">**</span>/<span class="k">*</span>.rb
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Identify examples</p>
+
+    <p>Often there are a few ways in which a bad practice can be written, so
+identifying these ways helps towards writing a water-tight Cop.</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># bad</span>
+<span class="n">let</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span> <span class="p">{</span> <span class="s2">"foo"</span> <span class="p">}</span>
+
+<span class="c1"># bad, bad</span>
+<span class="n">let!</span><span class="p">(</span><span class="ss">:bar</span><span class="p">)</span> <span class="p">{</span> <span class="s2">"bar"</span> <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write failing specs</p>
+
+    <p>Using the examples we can now write failing specs that will guide the
+implementation.</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"spec_helper"</span>
+<span class="nb">require</span> <span class="s2">"rubocop"</span>
+<span class="nb">require</span> <span class="s2">"rubocop/rspec/support"</span>
+<span class="nb">require</span> <span class="s2">"rubocop/cop/velory/lets_not"</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">RuboCop</span><span class="o">::</span><span class="no">Cop</span><span class="o">::</span><span class="no">Velory</span><span class="o">::</span><span class="no">LetsNot</span> <span class="k">do</span>
+  <span class="kp">include</span> <span class="no">RuboCop</span><span class="o">::</span><span class="no">RSpec</span><span class="o">::</span><span class="no">ExpectOffense</span>
+
+  <span class="n">it</span> <span class="s2">"adds offenses for uses of `let`"</span> <span class="k">do</span>
+    <span class="n">expect_offense</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">RUBY</span><span class="p">)</span><span class="sh">
+      let(:foo) { "foo" }
+      ^^^^^^^^^ Avoid `let` and `let!`. Instead inline the 
+                instance within the `it` block to follow the 
+                four-phase test pattern.
+</span><span class="no">    RUBY</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"adds offenses for uses of `let!`"</span> <span class="k">do</span>
+    <span class="n">expect_offense</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">RUBY</span><span class="p">)</span><span class="sh">
+      let!(:bar) { "bar" }
+      ^^^^^^^^^^ Avoid `let` and `let!`. Instead inline the 
+                 instance within the `it` block to follow the 
+                 four-phase test pattern.
+</span><span class="no">    RUBY</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">cop</span>
+    <span class="vi">@_cop</span> <span class="o">||=</span> <span class="no">RuboCop</span><span class="o">::</span><span class="no">Cop</span><span class="o">::</span><span class="no">Velory</span><span class="o">::</span><span class="no">LetsNot</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>    </div>
+
+    <p>This is in my opinion the most important step. Here we design our developer
+experience, and to make it a delightful one, I recommend using an actionable
+message. So the developer understands the <code class="language-plaintext highlighter-rouge">why</code> of the offense and is
+equipped with the context to successfully move forwards with a solution.</p>
+  </li>
+  <li>
+    <p>Write the Cop</p>
+
+    <p>This is the <a href="https://knowyourmeme.com/memes/how-to-draw-an-owl">“Draw the rest of the
+Owl”</a> step, where we need
+to be familiar with how RuboCop matches code.</p>
+
+    <p>A tip for writing Cops where the example code is <code class="language-plaintext highlighter-rouge">grep(1)</code>-able is to start with
+the <code class="language-plaintext highlighter-rouge">on_send</code> matcher and <code class="language-plaintext highlighter-rouge">node</code> instance methods to find matches. This
+approach takes us pretty far and is all we require for our “Let’s Not” best
+practice.</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"rubocop"</span>
+
+<span class="k">class</span> <span class="nc">RuboCop::Cop::Velory::LetsNot</span> <span class="o">&lt;</span> <span class="no">RuboCop</span><span class="o">::</span><span class="no">Cop</span><span class="o">::</span><span class="no">Base</span>
+  <span class="no">MSG</span> <span class="o">=</span>
+    <span class="s2">"Avoid `let` and `let!`. Instead inline the instance "</span> <span class="p">\</span>
+    <span class="s2">"within the `it` block to follow the four-phase test "</span> <span class="p">\</span> 
+    <span class="s2">"pattern."</span>
+
+  <span class="k">def</span> <span class="nf">on_send</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="n">node</span><span class="p">.</span><span class="nf">command?</span><span class="p">(</span><span class="ss">:let</span><span class="p">)</span> <span class="o">||</span> <span class="n">node</span><span class="p">.</span><span class="nf">command?</span><span class="p">(</span><span class="ss">:let!</span><span class="p">)</span>
+
+    <span class="n">add_offense</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run on the project</p>
+
+    <p>Once the specs are green it’s time to run the Cop on the project!</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ bundle <span class="nb">exec </span>rubocop
+Inspecting 1155 files
+......................CC...........C.............C..............
+
+1155 files inspected, 43 offenses detected
+</code></pre></div>    </div>
+
+    <p>With RuboCop linting our “Let’s Not” best practice we find fourty-three
+existing offenses in one of our projects. Finding existing offenses to the
+rule is not an entirely surprising result, c’est la vie. However, on closer
+inspection, all of these offenses are used within <code class="language-plaintext highlighter-rouge">shared_examples</code>.</p>
+
+    <p>In scenarios like this we have an excellent opportunity to evaluate the best
+practice as a team, questioning:</p>
+    <ul>
+      <li>is this an exception to the best practice?</li>
+      <li>is it really a best practice if we have gone against it <em>X</em> times?</li>
+      <li>should we write out the existing offenses?</li>
+    </ul>
+
+    <p>If the team thinks it’s an exception, then we can loop back to step three,
+refine our examples and update the Cop with the exception in mind. If the
+team thinks it’s no longer a best practice, we can delete it. And if the team
+thinks that we should write out the offenses we can use <code class="language-plaintext highlighter-rouge">rubocop
+--auto-gen-config</code> and leverage <a href="https://sirupsen.com/shitlists">shitlist driven
+development</a>.</p>
+  </li>
+</ol>
+
+<h2 id="parting-thoughts">Parting Thoughts</h2>
+
+<p>Encoding your <code class="language-plaintext highlighter-rouge">best-practices.md</code> document with RuboCop is not a drop-in
+replacement, but it can be an excellent tool in your team’s toolbox for
+tightening these feedback loops and ensuring that best practices are held.</p>
+
+<p>Writing custom Cops is not always straightforward and some best practices are
+too subjective to be converted. But that’s OK. We can delegate our objective
+best practices to RuboCop and save our thinking caps for the things that matter.</p>
+
+<p>For further reading I recommend <a href="https://docs.rubocop.org/rubocop/development.html">RuboCop’s custom Cop development guide</a>,
+<a href="https://evilmartians.com/chronicles/custom-cops-for-rubocop-an-emergency-service-for-your-codebase">EvilMartian’s blog post on custom Cops</a>, as well as the open sourced custom
+Cops from <a href="https://github.com/airbnb/ruby">Airbnb</a>, <a href="https://github.com/discourse/rubocop-discourse">Discourse</a>, <a href="https://github.com/github/rubocop-github">GitHub</a>, <a href="https://gitlab.com/gitlab-org/rubocop-gitlab-security">GitLab</a> and <a href="https://github.com/Shopify/rubocop-sorbet">Shopify</a>.</p>
+
+<p>Finally, here is our finished “Let’s Not” best practice which has been refined
+to “Let’s Not (Outside Of Shared Examples)”:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"rubocop"</span>
+
+<span class="k">class</span> <span class="nc">RuboCop::Cop::Velory::LetsNot</span> <span class="o">&lt;</span> <span class="no">RuboCop</span><span class="o">::</span><span class="no">Cop</span><span class="o">::</span><span class="no">Base</span>
+  <span class="no">MSG</span> <span class="o">=</span>
+    <span class="s2">"Avoid `let` and `let!`. Instead inline the instance within "</span> <span class="p">\</span>
+    <span class="s2">"the `it` block to follow the four-phase test pattern. "</span> <span class="p">\</span>
+    <span class="s2">"Shared examples are an exception to this rule."</span>
+
+  <span class="n">def_node_matcher</span> <span class="ss">:in_shared_example?</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="no">PATTERN</span><span class="sh">
+    {
+      (block (send _ #shared_example_context? ...) ...)
+    }
+</span><span class="no">  PATTERN</span>
+
+  <span class="k">def</span> <span class="nf">on_send</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="n">let_used?</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">in_shared_example_block?</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="n">add_offense</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">let_used?</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="nf">command?</span><span class="p">(</span><span class="ss">:let</span><span class="p">)</span> <span class="o">||</span> <span class="n">node</span><span class="p">.</span><span class="nf">command?</span><span class="p">(</span><span class="ss">:let!</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">in_shared_example_block?</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="nf">each_ancestor</span><span class="p">(</span><span class="ss">:block</span><span class="p">).</span><span class="nf">any?</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">method</span><span class="p">(</span><span class="ss">:in_shared_example?</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">shared_example_context?</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="sx">%w[
+       it_behaves_like 
+       it_should_behave_like 
+       include_examples 
+       shared_examples
+     ]</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="nf">to_s</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>And with that, bliss:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ bundle <span class="nb">exec </span>rubocop
+Inspecting 1155 files
+................................................................
+
+1155 files inspected, no offenses detected
+</code></pre></div></div>
+
+  </div>
+</div>
+
+      </section>
+
+    </div>
+
+    <script>
+     window.lazyLoadOptions = {
+       class_loading: "animate-pulse"
+     };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+  </body>
+</html>

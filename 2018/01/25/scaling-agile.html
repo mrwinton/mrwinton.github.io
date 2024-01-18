@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="Michael Winton's weblog">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/assets/images/mw-doodle.svg">
+    <link rel="apple-touch-icon" href="/assets/images/mw-doodle180.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <link type="application/atom+xml" rel="alternate" href="https://winton.co/feed.xml" title="Michael Winton" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Scaling Agile at Flux | Michael Winton</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Scaling Agile at Flux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I work at Flux, a software company that builds energy retail platforms. On any given day you may find us transforming how consumers buy power, expanding into new markets or enjoying some of Wellington’s finest coffee." />
+<meta property="og:description" content="I work at Flux, a software company that builds energy retail platforms. On any given day you may find us transforming how consumers buy power, expanding into new markets or enjoying some of Wellington’s finest coffee." />
+<link rel="canonical" href="https://winton.co/2018/01/25/scaling-agile.html" />
+<meta property="og:url" content="https://winton.co/2018/01/25/scaling-agile.html" />
+<meta property="og:site_name" content="Michael Winton" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-25T12:57:37+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Scaling Agile at Flux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-01-25T12:57:37+00:00","datePublished":"2018-01-25T12:57:37+00:00","description":"I work at Flux, a software company that builds energy retail platforms. On any given day you may find us transforming how consumers buy power, expanding into new markets or enjoying some of Wellington’s finest coffee.","headline":"Scaling Agile at Flux","mainEntityOfPage":{"@type":"WebPage","@id":"https://winton.co/2018/01/25/scaling-agile.html"},"url":"https://winton.co/2018/01/25/scaling-agile.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="/css/dist.css">
+  </head>
+  <body class="mw-theme antialiased font-sans text-base leading-relaxed">
+
+    <div class="flex flex-col">
+
+      <nav class="flex flex-col max-w-xl w-full px-6 py-6 sm:px-0 mx-auto">
+        <div class="mb-2">
+          <h1 class="font-bold">
+            <a href="/">
+              Michael Winton
+            </a>
+          </h1>
+        </div>
+
+        <div class="nav">
+          <ul class="flex flex-row space-x-4 font-medium mw-text-nav">
+            <li>
+  
+  <a class="inline-block" href="/">
+    <h2 class="font-semibold underline">
+      Posts
+    </h2>
+  </a>
+  
+</li>
+
+            <li>
+  
+  <a class="inline-block" href="/photos">
+    <h2 class="font-semibold">
+      Photos
+    </h2>
+  </a>
+  
+</li>
+
+            <li>
+  
+  <a class="inline-block" href="/about">
+    <h2 class="font-semibold">
+      About
+    </h2>
+  </a>
+  
+</li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <section>
+        <div class="max-w-xl w-full py-6 mx-auto px-6 sm:px-0">
+  <div class="pb-6">
+    <h2 class="font-bold">
+      Scaling Agile at Flux
+    </h2>
+
+    <p class="font-medium mw-text-label">
+      January 25, 2018
+    </p>
+  </div>
+
+  <div class="prose dark:prose-invert mb-6">
+    <p>I work at <a href="http://fluxfederation.com/">Flux</a>, a software company that builds
+energy retail platforms. On any given day you may find us transforming how
+consumers buy power, expanding into new markets or enjoying some of Wellington’s
+finest coffee.</p>
+
+<p>To achieve this success we’ve done a lot of scaling. Technically, our monolithic
+Rails app has grown to become a multi-market powerhouse. Operationally, our
+delivery team has soared from just a handful to now ~150 people. At this size we
+feel the ad-hoc approach to coordinating teams and organising around projects is
+starting to show it’s age. Where friction has manifested as a delay. The
+question we face is “how do we scale our Agile delivery practice?”.</p>
+
+<p>There has been a lot of time and effort put into answering this question.
+Spotify has their guilds. SAFe has their release trains. Salesforce has their
+“big bang”. Much like Goldilocks, we’ve decided to try some principles and
+reflect on if they work for us.</p>
+
+<p>The principles being tested:</p>
+
+<h3 id="1-you-build-it-you-own-it-you-run-it">1. You build it, you own it, you run it</h3>
+
+<p>Focusing teams around functional areas rather than projects is the boldest
+change we’re trying out. Traditionally at Flux we’ve signed up a new market and
+then established a contract for delivering X features by Y deadline. This has
+worked well but is limiting in that we are only thinking as far as the deadline
+allows.</p>
+
+<p>In our experience this can have some unfortunate side effects:</p>
+
+<ul>
+  <li>gives space for tech debt to grow.</li>
+  <li>separates delivery from production issues.</li>
+  <li>does not stimulate expertise.</li>
+</ul>
+
+<p>We hypothesise that creating teams around functional areas will relieve and
+perhaps even reverse each of these points.</p>
+
+<p><img src="https://winton.co/assets/images/posts/scaling_agile/function.png" alt="functional teams over project teams" /></p>
+
+<h3 id="2-nothing-beats-an-agile-team">2. Nothing beats an Agile team</h3>
+
+<p>If an Agile team is the <em>best thing</em>™, why change it? The SAFe framework heavily
+leverages the cross-functional, self-organising Agile team idea. It essentially
+proposes that at each level you form an Agile team of Agile teams.</p>
+
+<p>We hypothesise that by coordinating the functional area teams as Agile teams
+themselves we will increase quality, throughput, and the visibility of
+dependencies.</p>
+
+<p><img src="https://winton.co/assets/images/posts/scaling_agile/teams.png" alt="agile team of teams" /></p>
+
+<h3 id="3-the-team-is-global">3. The team is global</h3>
+
+<p>Opening a new Melbourne office is a major milestone for Flux. The virtual water
+cooler and it’s collaborating challenges is something entirely new for Flux to
+tackle and presents an opportunity for laying a solid foundation for future
+offices and perhaps remote work.</p>
+
+<p>We hypothesise that the Melbourne talent infused with some of our Flux
+Wellington crew will form an authentic Flux outpost.</p>
+
+<p><img src="https://winton.co/assets/images/posts/scaling_agile/straya.png" alt="global team" /></p>
+
+<p>The combination of these principles is a huge step forward for Flux. It’s
+exciting, it’s terrifying, it’s a bet on the future. Hopefully like Goldilocks,
+we’ll find some porridge that is just right.</p>
+
+  </div>
+</div>
+
+      </section>
+
+    </div>
+
+    <script>
+     window.lazyLoadOptions = {
+       class_loading: "animate-pulse"
+     };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+  </body>
+</html>
