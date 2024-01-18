@@ -1,34 +1,51 @@
-with import
-  (fetchTarball "https://github.com/NixOS/nixpkgs/archive/8bd7d6d6e0994aea4d2f2d42b7283db497dd5c30.tar.gz")
-{
-  overlays = [
-    (self: super: {
-      vips = super.vips.override { libjxl = null; };
-    })
-  ];
-};
-let
-  ruby = pkgs.ruby_3_0;
-  gems = bundlerEnv {
-    name = "mrwinton-blog";
-    ruby = ruby_3_0;
-    gemfile = ./Gemfile;
-    lockfile = ./Gemfile.lock;
-    gemset = ./gemset.nix;
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib, stdenv ? pkgs.stdenv, ... }:
 
-    gemConfig = pkgs.defaultGemConfig // {
-      ruby-vips = attrs: {
-        postInstall = ''
-          cd "$(cat $out/nix-support/gem-meta/install-path)"
-          substituteInPlace lib/vips.rb \
-            --replace "library_name('vips', 42)" '"${lib.getLib vips}/lib/libvips${stdenv.hostPlatform.extensions.sharedLibrary}"' \
-            --replace "library_name('glib-2.0', 0)" '"${glib.out}/lib/libglib-2.0${stdenv.hostPlatform.extensions.sharedLibrary}"' \
-            --replace "library_name('gobject-2.0', 0)" '"${glib.out}/lib/libgobject-2.0${stdenv.hostPlatform.extensions.sharedLibrary}"'
-        '';
-      };
-    };
+let
+  ruby = pkgs.ruby_3_2;
+  paths = with pkgs; [
+    gcc
+    git
+    glib
+    gnumake
+    libffi
+    libpcap
+    libxml2
+    libxslt
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodejs
+    pkg-config
+    ruby
+    rubyPackages_3_2.ruby-vips
+    vips
+    zlib
+    file
+  ];
+
+  env = pkgs.buildEnv {
+    name = "mrwinton-github-pages-env";
+    paths = paths;
+    extraOutputsToInstall = [ "bin" "lib" "include" ];
   };
+
+  makeCpath = lib.makeSearchPathOutput "include" "include";
+  makePathExpression = new:
+    builtins.concatStringsSep ":" [ new (builtins.getEnv "PATH") ];
 in
-pkgs.mkShell {
-  buildInputs = [ pkg-config zlib libiconv gems (lowPrio gems.wrappedRuby) bundix nodejs nodePackages.typescript nodePackages.typescript-language-server vips ];
+pkgs.mkShell rec {
+  name = "mrwinton-github-pages";
+  buildInputs = paths;
+  src = ./.;
+  PROJECT_ROOT = toString ./. + "/";
+  CPATH = makeCpath [ env ];
+  NODE_MODULES = PROJECT_ROOT + "/node_modules/.bin";
+  GEM_HOME = PROJECT_ROOT + "/.gem/ruby/${ruby.version}";
+  LIBRARY_PATH = lib.makeLibraryPath [ env ];
+  PATH = makePathExpression (lib.makeBinPath [ PROJECT_ROOT GEM_HOME NODE_MODULES env ]);
+
+  shellHook = ''
+    unset CC
+
+    export PATH=${PATH}:$PATH
+  '';
 }
