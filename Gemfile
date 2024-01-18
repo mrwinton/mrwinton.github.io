@@ -10,7 +10,6 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "mdl"
 gem "standard"
-gem "ruby-vips"
 gem "webrick"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
