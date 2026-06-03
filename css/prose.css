@@ -11,9 +11,14 @@
   section {
     margin-bottom: 1.5rem;
     
-    b {
+    h2 {
       display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 0;
       margin-bottom: 0.25rem;
+      border: none;
+      padding: 0;
     }
   }
 
