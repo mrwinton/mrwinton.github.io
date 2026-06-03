@@ -3,62 +3,59 @@ layout: default
 active: about
 ---
 
-<div class="flex flex-col max-w-xl w-full py-6 mx-auto px-6 sm:px-0">
-  <div class="flex flex-col space-y-4 prose dark:prose-invert">
-    <div class="mb-4">
+<div class="container post-layout">
+  <div class="prose">
+    <div class="about-image">
       {% picture it_me.JPG --alt "me" %}
     </div>
 
-    <section class="flex flex-col">
-      <b class="mb-1">Who is Michael Winton?</b>
-
-      <p class="mt-0">
+    <section>
+      <b>Who is Michael Winton?</b>
+      <p>
         He's a problem solver—simplifying systems with code, conversations and
         the occassional beer. Half-joking aside, he works with teams to break down big
         problems into smaller bite-sized ones.
       </p>
     </section>
 
-    <section class="flex flex-col">
-      <b class="mb-1">Does he use third-person often?</b>
-
-      <p class="mt-0">
+    <section>
+      <b>Does he use third-person often?</b>
+      <p>
         Not as often as he'd like :)
       </p>
     </section>
 
-    <section class="flex flex-col">
+    <section>
       <b>Anything else?</b>
-
-      <p class="mt-0 mb-0">
-        Hailing from <span class="inline-block transform rotate-180">Wellington, New Zealand</span>,
+      <p>
+        Hailing from <span class="upside-down">Wellington, New Zealand</span>,
         I now live in Stockholm, Sweden. Day-to-day you may find me exploring,
         climbing, and running around the city.
       </p>
 
-      <p class="mb-0">
+      <p>
         Professionally, I've developed systems with the Reserve Bank of New
         Zealand, lead client projects at Powershop, steered frontend migrations
         at Promote, drove engineering for Velory's customer app and currently I
         work as a Delivery Manager at Relay.
       </p>
 
-      <p class="mb-0">
+      <p>
         In what seems like a past life, I had the pleasure of studying Software
         Engineering with the talented folks at Victoria University and Uppsala
         University.
       </p>
 
       <p>
-        Want to chat? Drop me a line at <span class="font-medium">michael@[domain]</span>. Otherwise,
+        Want to chat? Drop me a line at <span class="email">michael@[domain]</span>. Otherwise,
         feel free to keep up with me through <a href="{% link feed.xml %}">RSS</a>
         or <a href="https://github.com/mrwinton">GitHub</a>.
       </p>
     </section>
 
-    <p class="flex flex-row items-center text-sm mw-text-label">
-      <span class="h-5 w-5 mt-3 mr-2">
-        <svg class="stroke-current" viewBox="0 0 19 9"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="translate(1)"><path d="M0 .5C2.53705308 4.16666667 5.37038642 6 8.5 6L8.5 6C11.6296136 6 14.4629469 4.16666667 17 .5M2.5 3.42316228L.5 5.5M14.5 3.42316228L16.5 5.5M10.5 6L11.5 8.5"></path><path d="M5.5,6 L6.5,8.5" transform="matrix(-1 0 0 1 12 0)"></path></g></svg>
+    <p class="footer-note">
+      <span class="note-icon">
+        <svg viewBox="0 0 19 9"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="translate(1)"><path d="M0 .5C2.53705308 4.16666667 5.37038642 6 8.5 6L8.5 6C11.6296136 6 14.4629469 4.16666667 17 .5M2.5 3.42316228L.5 5.5M14.5 3.42316228L16.5 5.5M10.5 6L11.5 8.5"></path><path d="M5.5,6 L6.5,8.5" transform="matrix(-1 0 0 1 12 0)"></path></g></svg>
       </span>
 
       No tracking here, there's enough of that out there.

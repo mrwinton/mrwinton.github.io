@@ -5,14 +5,14 @@ active: photos
 
 {% assign photo_posts = site.posts | where_exp: "post", "post.tags contains 'photo'" %}
 
-<div class="flex flex-col -mt-10 sm:-mt-6 px-6">
+<div class="photos-grid">
   {% for post in photo_posts %}
-  <figure class="flex flex-col justify-center min-w-full min-h-screen">
+  <figure class="photo-item">
     <a href="{{ post.url }}">
       {% picture lazy {{ post.photo }} --alt {{ post.title }} %}
     </a>
 
-    <figcaption class="mx-auto mt-2 text-xs mw-text-subheading">{{ post.title }}</figcaption>
+    <figcaption>{{ post.title }}</figcaption>
   </figure>
   {% endfor %}
 </div>

@@ -1,16 +1,8 @@
 [tools]
-node = "16"
 ruby = "3.4"
-
-[env]
-_.path = ["./node_modules/.bin"]
 
 [settings]
 ruby.compile = false
-
-[tasks.node-setup]
-description = "Install Node dependencies if needed"
-run = "test -d node_modules || npm install"
 
 [tasks.ruby-setup]
 description = "Install Ruby dependencies if needed"
@@ -20,24 +12,15 @@ run = [
 ]
 
 [tasks.setup]
-description = "Install Ruby and Node dependencies"
-depends = ["node-setup", "ruby-setup"]
-
-[tasks.css]
-description = "Build the PostCSS/Tailwind stylesheet"
-depends = ["node-setup"]
-run = "npm run postcss"
-
-[tasks.css-watch]
-description = "Watch and rebuild the PostCSS/Tailwind stylesheet"
-run = "npm run dev"
+description = "Install Ruby dependencies"
+depends = ["ruby-setup"]
 
 [tasks.serve]
-description = "Build CSS and run the Jekyll development server"
-depends = ["css", "ruby-setup"]
+description = "Run the Jekyll development server"
+depends = ["ruby-setup"]
 run = "bundle exec jekyll serve"
 
 [tasks.build]
 description = "Build the static site"
-depends = ["css", "ruby-setup"]
+depends = ["ruby-setup"]
 run = "bundle exec jekyll build"

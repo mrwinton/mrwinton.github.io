@@ -2,26 +2,28 @@
 layout: default
 ---
 
-<div class="max-w-xl w-full mx-auto px-6 sm:px-0">
-  <h2 class="font-bold">
-    {{ page.title }}
-  </h2>
+<div class="container">
+  <div class="post-header">
+    <h2>
+      {{ page.title }}
+    </h2>
 
-  <p class="font-medium mw-text-label pb-6">
-    {{ page.date | date: '%B %d, %Y' }}
-  </p>
+    <p class="post-meta">
+      {{ page.date | date: '%B %d, %Y' }}
+    </p>
+  </div>
 </div>
 
-<div class="flex flex-col pt-2 pb-8 px-6">
-  <section class="flex flex-col justify-center min-w-full">
+<div class="photo-layout">
+  <section>
     <span>
       {% picture {{ page.photo }} --alt {{ page.title}} %}
     </span>
   </section>
 </div>
 
-<div class="max-w-xl w-full pb-6 mx-auto px-6 sm:px-0">
-  <div class="prose dark:prose-invert mb-6">
+<div class="container">
+  <div class="prose">
     {{ content }}
   </div>
 </div>

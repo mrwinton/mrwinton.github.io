@@ -38,9 +38,4 @@ exclude:
   - README.md
   - bash
   - bin
-  - node_modules
-  - package-lock.json
-  - package.json
-  - postcss.config.js
-  - tailwind.config.js
   - yarn.lock

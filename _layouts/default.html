@@ -12,35 +12,32 @@
     {% feed_meta %}
     {% seo %}
 
-    <link rel="stylesheet" href="{{ 'css/dist.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/reset.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/root.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/elements.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/layout.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/prose.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/highlight.css' | relative_url }}">
   </head>
-  <body class="mw-theme antialiased font-sans text-base leading-relaxed">
+  <body>
 
-    <div class="flex flex-col">
+    <nav class="site-header container">
+      <h1>
+        <a href="/">
+          {{ site.title }}
+        </a>
+      </h1>
 
-      <nav class="flex flex-col max-w-xl w-full px-6 py-6 sm:px-0 mx-auto">
-        <div class="mb-2">
-          <h1 class="font-bold">
-            <a href="/">
-              {{ site.title }}
-            </a>
-          </h1>
-        </div>
+      <ul class="nav-links">
+        {% include nav_link.html title="posts" url="/" %}
+        {% include nav_link.html title="photos" url="/photos" %}
+        {% include nav_link.html title="about" url="/about" %}
+      </ul>
+    </nav>
 
-        <div class="nav">
-          <ul class="flex flex-row space-x-4 font-medium mw-text-nav">
-            {% include nav_link.html title="posts" url="/" %}
-            {% include nav_link.html title="photos" url="/photos" %}
-            {% include nav_link.html title="about" url="/about" %}
-          </ul>
-        </div>
-      </nav>
-
-      <section>
-        {{ content }}
-      </section>
-
-    </div>
+    <section>
+      {{ content }}
+    </section>
 
     <script>
      window.lazyLoadOptions = {

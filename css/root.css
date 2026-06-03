@@ -1,0 +1,50 @@
+:root {
+  --lch-canvas: 100% 0 0;
+  --lch-ink-darkest: 18% 0.024 250;
+  --lch-ink-darker: 40% 0.015 250;
+  --lch-ink-dark: 48% 0.01 250;
+  --lch-ink-medium: 60% 0.008 250;
+  --lch-ink-light: 85% 0.005 250;
+  --lch-ink-lighter: 92% 0.003 250;
+  --lch-border: 90% 0.005 250;
+
+  --color-canvas: oklch(var(--lch-canvas));
+  --color-ink: oklch(var(--lch-ink-darkest));
+  --color-ink-muted: oklch(var(--lch-ink-dark));
+  --color-ink-label: oklch(var(--lch-ink-darker));
+  --color-ink-subheading: oklch(var(--lch-ink-medium));
+  --color-border: oklch(var(--lch-border));
+  --color-code-bg: rgba(0, 0, 0, 0.04);
+  --color-code-block-bg: #272822;
+  --color-code-block-border: #3e3f46;
+  --color-code-block-text: #f8f8f2;
+
+  --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  
+  --font-size: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  --letter-spacing: -0.01em;
+  --letter-spacing-wide: 0.05em;
+  --line-height-relaxed: 1.625;
+  --line-height-tight: 1.3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lch-canvas: 20% 0.015 250;
+    --lch-ink-darkest: 95% 0.005 250;
+    --lch-ink-darker: 85% 0.005 250;
+    --lch-ink-dark: 75% 0.008 250;
+    --lch-ink-medium: 60% 0.008 250;
+    --lch-ink-light: 40% 0.015 250;
+    --lch-ink-lighter: 30% 0.015 250;
+    --lch-border: 30% 0.015 250;
+    --color-code-bg: rgba(255, 255, 255, 0.08);
+    --color-code-block-bg: #1e1f22;
+    --color-code-block-border: #2b2d30;
+    --color-code-block-text: #f8f8f2;
+  }
+}
