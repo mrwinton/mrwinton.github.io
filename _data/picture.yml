@@ -1,9 +1,9 @@
 media_queries:
   mobile: 'max-width: 480px'
-  tablet: 'max-width: 768'
+  tablet: 'max-width: 768px'
   laptop: 'max-width: 1024px'
-  desktop: 'max-width: 1200'
-  wide: 'min-width: 1201'
+  desktop: 'max-width: 1200px'
+  wide: 'min-width: 1201px'
 
 presets:
   default:
