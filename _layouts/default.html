@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="description" content="Michael Winton's weblog">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" sizes="any" type="image/svg+xml" href="{{ '/assets/images/mw-doodle.svg' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/assets/images/mw-doodle180.png' | relative_url }}">
@@ -22,11 +21,19 @@
   <body>
 
     <nav class="site-header container">
+      {% if page.url == "/" or page.url == "/index.html" %}
       <h1>
         <a href="/">
           {{ site.title }}
         </a>
       </h1>
+      {% else %}
+      <div class="site-title">
+        <a href="/">
+          {{ site.title }}
+        </a>
+      </div>
+      {% endif %}
 
       <ul class="nav-links">
         {% include nav_link.html title="posts" url="/" %}
@@ -35,9 +42,9 @@
       </ul>
     </nav>
 
-    <section>
+    <main id="main-content">
       {{ content }}
-    </section>
+    </main>
 
     <script>
      window.lazyLoadOptions = {
