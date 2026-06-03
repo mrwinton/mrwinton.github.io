@@ -6,55 +6,40 @@ active: posts
 tags: writing
 ---
 
-Have you ever received a code review that went something along the lines of:
+A code review like this is familiar:
 
-> There are a few places that I've commented which don't follow the best
-> practices documented [here](https://example.com/), let's fix up before
-> proceeding!
+> There are a few places that I've commented which don't follow
+> _best-practices.md_, let's fix before proceeding
 
-Engineering teams commonly align on practices that we believe encourage good
-outcomes in a `best-practices.md` document or similar. These documents are the
-melting pot in which company history, community standards, new initiatives and
-hard-earned bug fix lessons meet. So it is only natural for reviews like the one
-above to occur for changes to be consistent with the `best-practices.md`.
+A `best-practices.md` file is useful right up until it depends on everybody
+remembering it in the middle of a review.
 
-All good, right? Yes, but no.
+That creates two problems.
 
-I believe there are a couple of points of friction with this process.
+First, it relies on reviewers remembering every rule on every change.
 
-First, the process inherently relies on the team's ability to recall and
-evaluate every practice, in every change, in every code review, in the earnest
-hope that bad practices don't slip through.
+Second, it spends review time on things that should have been caught earlier,
+which means less time on the change itself.
 
-Second, the process can dilute the signal to noise ratio of the code review,
-wherein the worst-case scenario, reviewers and reviewees miss opportunities for
-discussion on nuances of the change itself.
+At Velory we wanted a tighter loop: less recall, less review churn, faster
+feedback.
 
-So at Velory, we wondered how we could improve this process. Making it easier to
-apply our best practices while tightening the feedback loop so that issues are
-caught long before code review.
-
-Imagine the nirvana when you are writing code that would introduce a bad
-practice and your editor gave the instant feedback, "Hi, avoid Foo. Use Bar
-instead", that would be delightful. That's what we're after.
+The idea is simple. You write code, drift into a bad practice, and your editor
+immediately tells you what to do instead.
 
 ## Towards nirvana
 
-We use Rails to develop our applications and [RuboCop](https://rubocop.org/) to
-lint our Ruby code. RuboCop does a marvellous job of checking and maintaining
-code style through _Cops_ — rules that identify issues, and optionally
-automatically fix them too.
+We use [RuboCop](https://rubocop.org/) to lint Ruby. RuboCop's model is
+straightforward: write a Cop, define the offense, and let the tool catch it
+consistently.
 
-At Velory, our first step on this journey has been through leveraging RuboCop.
-By synthesising our best practices into Cops we are essentially able to lint our
-best practices — consistently✅ and with a short feedback loop✅!
+So we started turning best practices into Cops.
 
-A reasonable workflow for turning a practice into a Cop has been to:
+The workflow looked like this:
 
 1. Choose a best practice
  
-   Not all best practices are equal, but a good place to start are best
-   practices that are `grep(1)`-able. In this example, we can use:
+   Start with a rule that is easy to detect. In this case:
 
    ```markdown
    - Avoid `let` and `let!` in specs, prefer four-phase test style
@@ -68,8 +53,7 @@ A reasonable workflow for turning a practice into a Cop has been to:
 
 2. Identify examples
 
-   Often there are a few ways in which a bad practice can be written, so
-   identifying these ways helps towards writing a water-tight Cop.
+   Find the shapes the bad pattern can take.
 
    ```ruby
    # bad
@@ -81,8 +65,7 @@ A reasonable workflow for turning a practice into a Cop has been to:
 
 3. Write failing specs
 
-   Using the examples we can now write failing specs that will guide the
-   implementation.
+   Let the examples drive the implementation.
 
    ```ruby
    require "spec_helper"
@@ -117,21 +100,16 @@ A reasonable workflow for turning a practice into a Cop has been to:
    end
    ```
 
-   This is in my opinion the most important step. Here we design our developer
-   experience, and to make it a delightful one, I recommend using an actionable
-   message. So the developer understands the `why` of the offense and is
-   equipped with the context to successfully move forwards with a solution.
+   This is the most important part. The message should tell the developer what
+   is wrong, why it matters, and what to do next.
 
 4. Write the Cop
 
-   This is the ["Draw the rest of the
-   Owl"](https://knowyourmeme.com/memes/how-to-draw-an-owl) step, where we need
-   to be familiar with how RuboCop matches code.
+   This is the ["draw the rest of the
+   owl"](https://knowyourmeme.com/memes/how-to-draw-an-owl) step.
 
-   A tip for writing Cops where the example code is `grep(1)`-able is to start with
-   the `on_send` matcher and `node` instance methods to find matches. This
-   approach takes us pretty far and is all we require for our "Let's Not" best
-   practice.
+   For rules where the example is `grep(1)`-able, starting with `on_send` and a
+   few `node` helpers gets you surprisingly far. That was enough here.
 
    ```ruby
    require "rubocop"
@@ -152,7 +130,7 @@ A reasonable workflow for turning a practice into a Cop has been to:
 
 5. Run on the project
 
-   Once the specs are green it's time to run the Cop on the project!
+   Run it across the project.
 
    ```shell
    ❯ bundle exec rubocop
@@ -162,25 +140,20 @@ A reasonable workflow for turning a practice into a Cop has been to:
    1155 files inspected, 43 offenses detected
    ```
 
-   With RuboCop linting our "Let's Not" best practice we find fourty-three
-   existing offenses in one of our projects. Finding existing offenses to the
-   rule is not an entirely surprising result, c'est la vie. However, on closer
-   inspection, all of these offenses are used within `shared_examples`.
+   Our "Let's Not" Cop found forty-three existing offenses in one project. On
+   inspection, every one of them lived inside `shared_examples`.
 
-   In scenarios like this we have an excellent opportunity to evaluate the best
-   practice as a team, questioning:
+   That is useful. It forces the team to ask:
    - is this an exception to the best practice?
    - is it really a best practice if we have gone against it _X_ times?
    - should we write out the existing offenses?
 
-   If the team thinks it's an exception, then we can loop back to step three,
-   refine our examples and update the Cop with the exception in mind. If the
-   team thinks it's no longer a best practice, we can delete it. And if the team
-   thinks that we should write out the offenses we can use `rubocop
-   --auto-gen-config` and leverage [shitlist driven
+   If it is a real exception, go back to the examples and encode that nuance. If
+   it is no longer a best practice, delete the rule. If the rule stands, use
+   `rubocop --auto-gen-config` and lean on [shitlist driven
    development](https://sirupsen.com/shitlists).
 
-## Parting Thoughts
+## Parting thoughts
 
 Encoding your `best-practices.md` document with RuboCop is not a drop-in
 replacement, but it can be an excellent tool in your team's toolbox for
@@ -194,8 +167,7 @@ For further reading I recommend [RuboCop's custom Cop development guide](https:/
 [EvilMartian's blog post on custom Cops](https://evilmartians.com/chronicles/custom-cops-for-rubocop-an-emergency-service-for-your-codebase), as well as the open sourced custom
 Cops from [Airbnb](https://github.com/airbnb/ruby), [Discourse](https://github.com/discourse/rubocop-discourse), [GitHub](https://github.com/github/rubocop-github), [GitLab](https://gitlab.com/gitlab-org/rubocop-gitlab-security) and [Shopify](https://github.com/Shopify/rubocop-sorbet).
 
-Finally, here is our finished "Let's Not" best practice which has been refined
-to "Let's Not (Outside Of Shared Examples)":
+Here is the finished rule, refined to "Let's Not (Outside Of Shared Examples)":
 
 ```ruby
 require "rubocop"

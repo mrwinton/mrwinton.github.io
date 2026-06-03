@@ -138,13 +138,25 @@
   grid-column: popout-start / popout-end;
 }
 
-.post-body.prose p:has(> img),
-.post-body.prose p:has(> picture),
-.post-body.prose p:has(> .picture),
 .post-body.prose > img,
 .post-body.prose > picture,
 .post-body.prose > .picture {
   grid-column: popout-start / popout-end;
+}
+
+.post-body.prose .prose-media {
+  grid-column: popout-start / popout-end;
+  margin: 0 0 1.5rem;
+}
+
+.post-body.prose .prose-media > img,
+.post-body.prose .prose-media > picture,
+.post-body.prose .prose-media > .picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .post-body.prose picture,
@@ -160,14 +172,21 @@
   }
 
   .post-body.prose pre,
-  .post-body.prose p:has(> img),
-  .post-body.prose p:has(> picture),
-  .post-body.prose p:has(> .picture),
   .post-body.prose > img,
   .post-body.prose > picture,
-  .post-body.prose > .picture {
+  .post-body.prose > .picture,
+  .post-body.prose .prose-media {
     grid-column: full-start / full-end;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .post-body.prose .prose-media > img,
+  .post-body.prose .prose-media > picture,
+  .post-body.prose .prose-media > .picture {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

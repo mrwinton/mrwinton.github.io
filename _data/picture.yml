@@ -27,3 +27,15 @@ presets:
     noscript: true # add a fallback image inside a <noscript> tag
     attributes:
       parent: 'class="lazy mx-auto"'
+
+  breakout:
+    formats: [webp, original] # Order matters
+    widths: [200, 400, 800, 1200, 1600] # Image widths in px
+    sizes:
+      mobile: calc(100vw - 16px)
+      tablet: 80vw
+    size: 800px
+    dimension_attributes: true # Remove reflow
+    attributes:
+      picture: 'class="prose-media-picture"'
+      img: 'class="mx-auto"'
