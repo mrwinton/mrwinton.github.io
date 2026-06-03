@@ -1,5 +1,20 @@
+{% assign is_active = false %}
+{% if include.title == 'home' %}
+  {% if page.url == '/' or page.url == '/index.html' or page.active == 'home' or page.layout == 'post' or page.tags contains 'writing' %}
+    {% assign is_active = true %}
+  {% endif %}
+{% elsif include.title == 'photos' %}
+  {% if page.url == '/photos/' or page.url == '/photos.html' or page.active == 'photos' or page.layout == 'photo' or page.tags contains 'photo' %}
+    {% assign is_active = true %}
+  {% endif %}
+{% elsif include.title == 'about' %}
+  {% if page.url == '/about/' or page.url == '/about.html' or page.active == 'about' %}
+    {% assign is_active = true %}
+  {% endif %}
+{% endif %}
+
 <li>
-  {% if page.active == include.title %}
+  {% if is_active %}
   <a id="nav-link-{{ include.title }}" class="active" href="{{ include.url }}">
     {{ include.title | capitalize }}
   </a>

@@ -22,18 +22,18 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.1em;
-  transition: opacity 0.15s ease;
-  
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+
   &:hover {
-    opacity: 0.8;
+    color: var(--color-ink);
   }
 }
 
 b, strong {
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--color-ink);
 }
 
 i, em {

@@ -3,7 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
     <link rel="icon" sizes="any" type="image/svg+xml" href="{{ '/assets/images/mw-doodle.svg' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/assets/images/mw-doodle180.png' | relative_url }}">
     <link rel="manifest" href="/manifest.webmanifest">
@@ -24,20 +25,16 @@
     <nav class="site-header container">
       {% if page.url == "/" or page.url == "/index.html" %}
       <h1>
-        <a href="/">
-          {{ site.title }}
-        </a>
+        <a href="/">{{ site.title }}</a>
       </h1>
       {% else %}
       <div class="site-title">
-        <a href="/">
-          {{ site.title }}
-        </a>
+        <a href="/">{{ site.title }}</a>
       </div>
       {% endif %}
 
       <ul class="nav-links">
-        {% include nav_link.html title="posts" url="/" %}
+        {% include nav_link.html title="home" url="/" %}
         {% include nav_link.html title="photos" url="/photos" %}
         {% include nav_link.html title="about" url="/about" %}
       </ul>

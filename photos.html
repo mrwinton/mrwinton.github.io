@@ -11,8 +11,6 @@ active: photos
     <a href="{{ post.url }}">
       {% picture lazy {{ post.photo }} --alt {{ post.title }} %}
     </a>
-
-    <figcaption>{{ post.title }}</figcaption>
   </figure>
   {% endfor %}
 </div>
