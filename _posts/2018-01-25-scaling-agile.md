@@ -42,7 +42,7 @@ In our experience this can have some unfortunate side effects:
 We hypothesise that creating teams around functional areas will relieve and
 perhaps even reverse each of these points.
 
-![functional teams over project teams]({{ site.url }}/assets/images/posts/scaling_agile/function.png)
+{% include prose_picture.html src="/posts/scaling_agile/function.png" alt="functional teams over project teams" %}
 
 ### 2. Nothing beats an Agile team
 
@@ -54,7 +54,7 @@ We hypothesise that by coordinating the functional area teams as Agile teams
 themselves we will increase quality, throughput, and the visibility of
 dependencies.
 
-![agile team of teams]({{ site.url }}/assets/images/posts/scaling_agile/teams.png)
+{% include prose_picture.html src="/posts/scaling_agile/teams.png" alt="agile team of teams" %}
 
 ### 3. The team is global
 
@@ -66,7 +66,7 @@ offices and perhaps remote work.
 We hypothesise that the Melbourne talent infused with some of our Flux
 Wellington crew will form an authentic Flux outpost.
 
-![global team]({{ site.url }}/assets/images/posts/scaling_agile/straya.png)
+{% include prose_picture.html src="/posts/scaling_agile/straya.png" alt="global team" %}
 
 The combination of these principles is a huge step forward for Flux. It’s
 exciting, it’s terrifying, it’s a bet on the future. Hopefully like Goldilocks,

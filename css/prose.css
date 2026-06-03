@@ -146,6 +146,7 @@
 
 .post-body.prose .prose-media {
   grid-column: popout-start / popout-end;
+  margin: 0 0 1.5rem;
 }
 
 .post-body.prose .prose-media > img,
@@ -173,7 +174,8 @@
   .post-body.prose pre,
   .post-body.prose > img,
   .post-body.prose > picture,
-  .post-body.prose > .picture {
+  .post-body.prose > .picture,
+  .post-body.prose .prose-media {
     grid-column: full-start / full-end;
     padding-left: 0;
     padding-right: 0;
