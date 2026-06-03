@@ -1,0 +1,44 @@
+:root {
+  --color-canvas: #f5f5f5;
+  --color-ink: #111111;
+  --color-ink-muted: #6b7280;
+  --color-ink-label: #6b7280;
+  --color-ink-subheading: #6b7280;
+  --color-border: #e5e7eb;
+  --color-code-bg: rgba(0, 0, 0, 0.05);
+  --color-code-block-bg: #1c1c1e;
+  --color-code-block-border: #2c2c2e;
+  --color-code-block-text: #f2f2f7;
+
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  --font-size: 0.9375rem;      /* 15px */
+  --font-size-sm: 0.8125rem;   /* 13px */
+  --font-size-xs: 0.75rem;     /* 12px */
+
+  --letter-spacing: -0.005em;
+  --letter-spacing-wide: 0.04em;
+  --line-height-relaxed: 1.6;
+  --line-height-tight: 1.25;
+
+  --page-max-width: 40rem;
+  --page-padding: 1.25rem;
+  --post-popout-width: 6rem;
+  --content-width: calc(var(--page-max-width) + (var(--page-padding) * 2));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #111111;
+    --color-ink: #f2f2f7;
+    --color-ink-muted: #8e8e93;
+    --color-ink-label: #8e8e93;
+    --color-ink-subheading: #8e8e93;
+    --color-border: #2c2c2e;
+    --color-code-bg: rgba(255, 255, 255, 0.07);
+    --color-code-block-bg: #0a0a0a;
+    --color-code-block-border: #1c1c1e;
+    --color-code-block-text: #f2f2f7;
+  }
+}

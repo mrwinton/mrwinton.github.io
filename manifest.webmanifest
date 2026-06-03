@@ -1,0 +1,6 @@
+{
+  "icons": [
+    { "src": "/assets/images/mw-doodle192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/assets/images/mw-doodle512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
