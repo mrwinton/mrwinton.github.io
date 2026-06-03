@@ -20,6 +20,7 @@
 
 title: Michael Winton
 url: https://winton.co
+description: "Michael Winton's weblog"
 
 # Build settings
 markdown: kramdown
@@ -39,3 +40,6 @@ exclude:
   - bash
   - bin
   - yarn.lock
+  - .envrc
+  - mise.toml
+  - .github
