@@ -10,7 +10,7 @@
 
   section {
     margin-bottom: 1.5rem;
-    
+
     h2 {
       display: block;
       font-size: 1rem;
@@ -22,7 +22,12 @@
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: var(--color-ink);
     font-weight: 700;
     line-height: var(--line-height-tight);
@@ -49,7 +54,7 @@
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 0.1em;
-    
+
     &:hover {
       opacity: 0.8;
     }
@@ -59,7 +64,7 @@
     list-style-type: disc;
     padding-left: 1.5rem;
     margin-bottom: 1.25rem;
-    
+
     li {
       margin-bottom: 0.5rem;
       padding-left: 0.25rem;
@@ -70,7 +75,7 @@
     list-style-type: decimal;
     padding-left: 1.5rem;
     margin-bottom: 1.25rem;
-    
+
     li {
       margin-bottom: 0.5rem;
       padding-left: 0.25rem;
@@ -83,7 +88,7 @@
     margin: 1.5rem 0;
     color: var(--color-ink-muted);
     font-style: italic;
-    
+
     p {
       margin-bottom: 0;
     }
@@ -118,9 +123,51 @@
 
   img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    height: auto;
     margin-bottom: 1.5rem;
-    border-radius: 4px;
+  }
+}
+
+.post-body.prose > * {
+  grid-column: content-start / content-end;
+  min-width: 0;
+}
+
+.post-body.prose pre {
+  grid-column: popout-start / popout-end;
+}
+
+.post-body.prose p:has(> img),
+.post-body.prose p:has(> picture),
+.post-body.prose p:has(> .picture),
+.post-body.prose > img,
+.post-body.prose > picture,
+.post-body.prose > .picture {
+  grid-column: popout-start / popout-end;
+}
+
+.post-body.prose picture,
+.post-body.prose .picture {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .post-body.prose > * {
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+  }
+
+  .post-body.prose pre,
+  .post-body.prose p:has(> img),
+  .post-body.prose p:has(> picture),
+  .post-body.prose p:has(> .picture),
+  .post-body.prose > img,
+  .post-body.prose > picture,
+  .post-body.prose > .picture {
+    grid-column: full-start / full-end;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
