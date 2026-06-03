@@ -153,10 +153,10 @@
 .post-body.prose .prose-media > picture,
 .post-body.prose .prose-media > .picture {
   display: block;
-  width: calc(100% + (var(--post-popout-width) * 2));
-  max-width: none;
-  margin-left: calc(var(--post-popout-width) * -1);
-  margin-right: calc(var(--post-popout-width) * -1);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .post-body.prose picture,
@@ -185,6 +185,7 @@
   .post-body.prose .prose-media > picture,
   .post-body.prose .prose-media > .picture {
     width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
