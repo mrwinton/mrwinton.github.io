@@ -186,11 +186,6 @@
   }
 }
 
-.upside-down {
-  display: inline-block;
-  transform: rotate(180deg);
-}
-
 .about-image {
   margin-bottom: 1.5rem;
 }
@@ -235,24 +230,4 @@ section img, section video {
   section img, section video {
     max-height: calc(100vh - 100px);
   }
-}
-
-/* Centering utility */
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Loading placeholder animation */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
