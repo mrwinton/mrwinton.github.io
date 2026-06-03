@@ -1,15 +1,11 @@
 <li>
   {% if page.active == include.title %}
-  <a class="active" href="{{ include.url }}">
-    <h2>
-      {{ include.title | capitalize }}
-    </h2>
+  <a id="nav-link-{{ include.title }}" class="active" href="{{ include.url }}">
+    {{ include.title | capitalize }}
   </a>
   {% else %}
-  <a href="{{ include.url }}">
-    <h2>
-      {{ include.title | capitalize }}
-    </h2>
+  <a id="nav-link-{{ include.title }}" href="{{ include.url }}">
+    {{ include.title | capitalize }}
   </a>
   {% endif %}
 </li>
