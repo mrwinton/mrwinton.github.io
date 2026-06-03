@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "3.4.9"
+
 gem "jekyll"
 gem "mdl"
 gem "standard"

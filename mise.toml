@@ -1,5 +1,5 @@
 [tools]
-ruby = "3.4"
+ruby = "3.4.9"
 
 [settings]
 ruby.compile = false
@@ -7,7 +7,7 @@ ruby.compile = false
 [tasks.ruby-setup]
 description = "Install Ruby dependencies if needed"
 run = [
-  "gem list -i bundler -v 2.4.10 >/dev/null || gem install bundler -v 2.4.10",
+  "gem list -i bundler -v 4.0.8 >/dev/null || gem install bundler -v 4.0.8",
   "bundle check || bundle install",
 ]
 
