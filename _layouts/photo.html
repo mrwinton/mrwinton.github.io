@@ -21,11 +21,11 @@ layout: default
     </span>
   </section>
 
-  {% if content != "" %}
+  {% unless content == blank %}
   <div class="content-column">
     <div class="prose photo-caption">
       {{ content }}
     </div>
   </div>
-  {% endif %}
+  {% endunless %}
 </div>
