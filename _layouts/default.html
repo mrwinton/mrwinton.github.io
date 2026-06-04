@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
     <link rel="icon" sizes="any" type="image/svg+xml" href="{{ '/assets/images/mw-doodle.svg' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/assets/images/mw-doodle180.png' | relative_url }}">
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="{{ '/manifest.webmanifest' | relative_url }}">
 
     {% feed_meta %}
     {% seo %}
@@ -39,7 +39,7 @@
 
       <ul class="nav-links">
         {% include nav_link.html title="home" url="/" %}
-        {% include nav_link.html title="photos" url="/photos" %}
+        {% include nav_link.html title="photos" url="/photos/" %}
         {% include nav_link.html title="about" url="/about" %}
       </ul>
     </nav>
