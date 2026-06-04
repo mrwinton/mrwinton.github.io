@@ -6,6 +6,8 @@ description: "Michael Winton's weblog"
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll_picture_tag
 
 picture:
   source: "assets/images"
